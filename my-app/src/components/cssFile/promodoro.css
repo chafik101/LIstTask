@@ -1,0 +1,68 @@
+
+.container-promodoro{
+    width: 100%;
+    height:100%;
+    background-color: white;
+    display: grid;
+    place-items: center;
+}
+.title-promodoro{
+    line-height: 0px;
+    color: #5C4848;
+    font-family: Rammetto One;
+}
+
+.progress-promodoro{
+    width: 180px;
+    height: 180px;
+    background:conic-gradient(rgba(255, 102, 0, 0.63) 300deg , rgb(255, 255, 255) 0deg) ;
+    border-radius:100%;
+    display: grid;
+    place-items: center;
+}
+
+.circle-promodoro{
+    width: 160px;
+    height: 160px;
+    background: #5C4848;
+    border-radius: 100%;
+    display: grid;
+    place-items: center;
+}
+.percent-promodoro{
+    color: #F60;
+    text-align: center;
+    font-family: Rammetto One;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.41px;
+    
+}
+.div-btn-promodoro{
+    display: flex;
+    gap: 5px;
+    position: relative;
+    bottom: 40px;
+}
+.btn-promodoro{
+    width: 50px;
+    height: 50px;
+    background-color: #F60;
+    border: none;
+    border-radius: 100%;
+    display: grid;
+    place-items: center;
+}
+.svg-promodoro{
+    position: relative;
+    right: 8px;
+}
+.carre{
+    width: 30px;
+    height: 30px;
+    background-color: rgb(255, 255, 255);
+    border: none;
+
+}

@@ -1,0 +1,95 @@
+.container-tasks{
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border-radius: 80px 80px 5px 5px;
+}
+
+.title-task{
+    font-family: Rammetto One;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    color: #5C4848;
+    line-height: 25px;
+
+}
+
+.plus-task{
+    width: 50px;
+    height: 50px;
+    background-color:  #F60;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100px;
+    color: white;
+    font-size: 50px;
+    border: none;
+}
+
+.nav-task{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 20px;
+}
+
+.tasks{
+    width: 100%;
+    height: 75%;
+    display: grid;
+    place-content: center;
+    grid-template-columns: 48% 48%;
+    gap: 5px;
+    overflow-y: scroll;
+}
+.task{
+    width: 100%;
+    height:100px;
+    background-color: #5C4848;
+    border-radius:4px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.tasks::-webkit-scrollbar{
+    background-color: rgb(255, 255, 255);
+    width: 4px;
+
+}
+.tasks::-webkit-scrollbar-thumb{
+    background-color: rgba(255, 102, 0, 0.63);
+
+}
+.selectTask{
+    width: 30px;
+    height: 30px;
+    border-radius: 100px;
+    margin: 20px;
+    background-color: rgba(92, 72, 72, 0);
+    border: 3px solid #F60;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+.div-txt-task{
+    display: flex;
+    flex-direction: column;
+}
+.txt-task{
+    color: #FFF;
+    font-family: 'Pangolin';
+    font-size: 25px;
+}
+
+.date-task{
+    color: #ffffff88;
+    font-family: 'Pangolin';
+}

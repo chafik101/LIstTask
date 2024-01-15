@@ -1,0 +1,29 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Rammetto+One&display=swap');
+
+
+.nav-bar{
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 20px;
+}
+.title{
+    color: #F60;
+    font-family: Rammetto One;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.title-color{
+    color: #5C4848;
+}
+
+.container-img-profile{
+    width: 69px;
+    height: 92px;
+    border-radius: 0px 0px 100px 100px;
+    background: rgba(217, 147, 147, 0.55);
+    display: grid;
+    place-items: end;
+}
