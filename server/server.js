@@ -37,6 +37,7 @@ app.post('/addTask', async (req,res)=>{
     })
     await newTask.save();
     res.send('successful saving')
+    console.log(newTask)
 
     }catch(err){
         console.log(err)

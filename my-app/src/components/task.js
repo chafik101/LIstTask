@@ -11,27 +11,34 @@ import './cssFile/task.css'
 function Task(){
 
 const [tasks , setTasks] = useState([])
-const [date , setDate ] = useState('')
+// const [date , setDate ] = useState('')
 const [show,setshow] = useState('hide')
 
 
-useEffect(()=>{
-        fetch('http://localhost:3000/task/2024-01-07')
-        .then(res => res.json())
-        .then(data=>{
-            setTasks(data)
-            console.log(data)
-        })
-        .catch(err => console.log(err))
-    })
+// useEffect(()=>{
+//         fetch('http://localhost:3000/task/2024-01-07')
+//         .then(res => res.json())
+//         .then(data=>{
+//             setTasks(data)
+//             console.log(data)
+//         })
+//         .catch(err => console.log(err))
+//     })
+
 
 useEffect(()=>{
     document.getElementById('plus-task').addEventListener('click',()=>{
-        if(show=='hide'){
-            document.getElementById('task').style.display='none'
+        if(show ==='hide'){
+            document.querySelectorAll('.task').forEach(element => {
+                element.style.display='none'
+            });
+            document.getElementById('container-add-task').style.display='flex'
             setshow('show')
-        }else if(show==='show'){
-            document.getElementById('task').style.display='flex'
+        }else if(show === 'show'){
+            document.querySelectorAll('.task').forEach(element => {
+                element.style.display='flex'
+            });
+            document.getElementById('container-add-task').style.display='none'
             setshow('hide')
         }
     })
@@ -72,10 +79,17 @@ useEffect(()=>{
                ))}
 
 
-            <form action='localhost:3000/addTask' method='POST' >
-                <input type='text' name='title' placeholder='Title'></input>
-    
-                <input type='submit' value={'Add task'}></input>
+            <form class='container-add-task' id='container-add-task' action='localhost:3000/addTask' method='POST' >
+                <input className='input-title' type='text' name='title' placeholder='Title'></input>
+                <textarea name='desc' placeholder='Add description of task'></textarea>
+                <div>
+                <label className=''>date start:</label>
+                <input className='input-time' type='time' name='timeStart'></input>
+                <label className=''>date start:</label>
+                <input className='input-time' type='time' name='timeEnd'></input>
+                </div>
+                <input  type='text' value='true' name='condition' style={{'display':'none'}}></input><br></br>
+                <input className='btn-submit' type='submit' value={'Add task'}></input>
             </form>
             </div>
         </div>
