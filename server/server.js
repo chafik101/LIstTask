@@ -14,7 +14,7 @@ app.use(bodyParser.json())
 
 app.get('/task/:date', async (req,res)=>{ 
     try{
-        await Task.find({}).then(result=>{
+        await Task.find({date:req.params.date}).then(result=>{
             res.send(result)
         })
     }catch(err){
@@ -36,7 +36,7 @@ app.post('/addTask', async (req,res)=>{
             timeEnd :  req.body.timeEnd
     })
     await newTask.save();
-    res.send('successful saving')
+    res.send({status : 'successful saving'})
     console.log(newTask)
 
     }catch(err){

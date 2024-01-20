@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import './cssFile/task.css'
+import axios from 'axios'
 
 
 
@@ -7,43 +8,82 @@ import './cssFile/task.css'
 
 
 
-
-function Task(){
+function Task(props){
 
 const [tasks , setTasks] = useState([])
 // const [date , setDate ] = useState('')
 const [show,setshow] = useState('hide')
+const [date, setDate] = useState('')
 
-
-// useEffect(()=>{
-//         fetch('http://localhost:3000/task/2024-01-07')
-//         .then(res => res.json())
-//         .then(data=>{
-//             setTasks(data)
-//             console.log(data)
-//         })
-//         .catch(err => console.log(err))
-//     })
 
 
 useEffect(()=>{
-    document.getElementById('plus-task').addEventListener('click',()=>{
+    setDate(props.fulldate)
+ 
+},[props])
+
+
+
+//fetch data from backend
+useEffect(()=>{
+        
+        fetch(`http://localhost:3000/task/${props.fulldate}`)
+        .then(res => res.json())
+        .then(data=>{
+            setTasks(data)
+            console.log(data)
+        })
+        .catch(err => console.log(err))
+    },[date,show])
+
+
+
+
+
+//show and hide form post task
+useEffect(()=>{
+    document.getElementById('plus-task').addEventListener('click',x)
+    document.getElementById('btn-submit').addEventListener('click',x)
+    function x(){
         if(show ==='hide'){
             document.querySelectorAll('.task').forEach(element => {
                 element.style.display='none'
             });
             document.getElementById('container-add-task').style.display='flex'
+            document.querySelector('.plus-task').innerHTML='-'
             setshow('show')
         }else if(show === 'show'){
             document.querySelectorAll('.task').forEach(element => {
                 element.style.display='flex'
             });
             document.getElementById('container-add-task').style.display='none'
+            document.querySelector('.plus-task').innerHTML='+'
             setshow('hide')
         }
-    })
+    }
 })
 
+
+//post data
+
+function handelPost(e){
+    console.log('hello')
+    axios.post('http://localhost:3000/addTask', {
+        title: document.querySelector('.input-title').value,
+        desc: document.querySelector('.desc').value,
+        condition: false,
+        date: date,
+        timeStart: document.querySelector('.timeStart').value,
+        timeEnd: document.querySelector('.timeEnd').value
+    }
+        )
+          .then(function (response) {
+            console.log(response);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+}
   
 
 
@@ -79,19 +119,21 @@ useEffect(()=>{
                ))}
 
 
-            <form class='container-add-task' id='container-add-task' action='localhost:3000/addTask' method='POST' >
-                <input className='input-title' type='text' name='title' placeholder='Title'></input>
-                <textarea name='desc' placeholder='Add description of task'></textarea>
-                <div>
-                <label className=''>date start:</label>
-                <input className='input-time' type='time' name='timeStart'></input>
-                <label className=''>date start:</label>
-                <input className='input-time' type='time' name='timeEnd'></input>
-                </div>
-                <input  type='text' value='true' name='condition' style={{'display':'none'}}></input><br></br>
-                <input className='btn-submit' type='submit' value={'Add task'}></input>
-            </form>
+        
             </div>
+
+
+                <div className='container-add-task' id='container-add-task' action='localhost:3000/addTask' method='POST' >
+                <input className='input-title' type='text' name='title' placeholder='Title'></input>
+                <textarea className='desc' name='desc' placeholder='Add description of task'></textarea>
+                <div>
+                <label >date start:</label>
+                <input className='input-time timeStart' type='time' name='timeStart'></input>
+                <label >date start:</label>
+                <input className='input-time timeEnd' type='time' name='timeEnd'></input>
+                </div>
+                <input className='btn-submit' id='btn-submit' type='submit' value={'Add task'}  onClick={handelPost}></input>
+                </div>
         </div>
     )
 }

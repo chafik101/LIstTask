@@ -5,24 +5,27 @@ import {useEffect, useState} from 'react'
 
 
 function FindDate(){
-
-    const [year,setYear] = useState(2023)
     const [listMonth,setListMonth] = useState(['January','February','March','April','May','June','July','August','September','October','November','December'])
-    const [month,setMonth] = useState('January')
-    const [show,setShow]=useState('hide')
+    const [days,setDays] = useState([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31])
+
+//for get last day in month choice
+    const [lastDay,setLastDay] = useState(new Date(new Date(`${year}-${month}-1`).getFullYear(),new Date(`${year}-${month}-1`).getMonth() + 1 ,0))
+    
+    const [year,setYear] = useState(2023)
+    const [month,setMonth] = useState('January')  
     const [daySelect , setdaySelect] = useState('')
     const [fullDate,setFullYear] = useState(`${year}-${month}-${daySelect}`)
-    const [days,setDays] = useState([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31])
+
+
+    const [show,setShow]=useState('hide')
     
-    const [lastDay,setLastDay] = useState(new Date(new Date(`${year}-${month}-1`).getFullYear(),new Date(`${year}-${month}-1`).getMonth() + 1 ,0))
 
 
 
 
-
+//container choice year and month
     useEffect(()=>{
         document.querySelector('.date').addEventListener('click',()=>{
-            console.log('hh')
             if(show==='hide'){
                 document.querySelectorAll('#list-date').forEach(item=>item.style.display='block');
                 setShow('show')   
@@ -34,13 +37,16 @@ function FindDate(){
         setFullYear(`${year}-${month}-${daySelect}`)
         console.log(fullDate)
     },[year,month,daySelect,show])
-   
 
 
+
+
+//update full date
     useEffect(()=>{
         setLastDay(new Date(new Date(`${year}-${month}-${daySelect}`).getFullYear(),new Date(`${year}-${month}-${daySelect}`).getMonth() + 1 ,0))
     },[month,year,daySelect])
     
+
     const hanadelMonth=(e)=>{
         setMonth(e.target.id)
         setFullYear(`${year}-${month}-1`)
@@ -50,6 +56,8 @@ function FindDate(){
         setYear(e.target.id)
         setFullYear(`${year}-${month}-1`)
     }
+
+//add style of day select
     const hanadelActive=(e)=>{
         const active = document.querySelectorAll('.active')
         active.forEach(item=>item.classList.remove('active'))
@@ -89,5 +97,6 @@ function FindDate(){
         </div>
     )
 }
+
 
 export default FindDate;

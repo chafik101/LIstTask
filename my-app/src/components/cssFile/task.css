@@ -1,8 +1,11 @@
 .container-tasks{
     width: 100%;
-    height: 100%;
     background-color: white;
-    border-radius: 80px 80px 5px 5px;
+    border-radius:5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .title-task{
@@ -20,9 +23,8 @@
     width: 50px;
     height: 50px;
     background-color:  #F60;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    place-content: center;
     border-radius: 100px;
     color: white;
     font-size: 50px;
@@ -30,10 +32,10 @@
 }
 
 .nav-task{
+    width: 98%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0px 20px;
 }
 
 .tasks{
@@ -92,19 +94,19 @@
 
 .date-task{
     color: #ffffff88;
-    font-family: 'Pangolin';
+    font-family: Pangolin;
 }
 
 .container-add-task{
     border-radius:5px;
-    width: 100%;
+    width: 60%;
     height: 300px;
-    background: rgba(217, 147, 147, 0.55);
+    background: rgba(217, 147, 147, 0.811);
     display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
+    position: absolute;
 }
 
 .input-title{
