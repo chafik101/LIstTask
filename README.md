@@ -2,3 +2,5 @@
 ![Capture d’écran_30-6-2024_24838_localhost](https://github.com/chafik101/LIstTask/assets/124458053/1145947e-a3b2-4bd7-9057-6e9711255db3)
 ![Capture d’écran_30-6-2024_2490_localhost](https://github.com/chafik101/LIstTask/assets/124458053/e2c810a2-9829-4693-acfc-b7d7fb476ef0)
 ![Capture d’écran_30-6-2024_24917_localhost](https://github.com/chafik101/LIstTask/assets/124458053/dad7346d-e7dc-4747-9fe3-f27be869865b)
+![Capture d’écran_30-6-2024_25354_localhost](https://github.com/chafik101/LIstTask/assets/124458053/9bf41bfe-0e40-4ae9-a681-af8ca2af5d56)
+![Uploading Capture d’écran_30-6-2024_25342_localhost.jpeg…]()
